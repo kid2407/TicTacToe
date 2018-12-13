@@ -13,13 +13,15 @@ use Tobias\TicTacToe\TTT;
 
 class End implements TTTInterface {
 
-	private $ttt;
+    private $ttt;
 
-	public function __construct( TTT $TTT ) {
-		$this->ttt = $TTT;
-	}
+    public function __construct( TTT &$TTT ) {
+        $this->ttt = $TTT;
+    }
 
-	function numEntered( int $number ): void {
-		// TODO: Implement numEntered() method.
-	}
+    function numEntered( int $number ): void {
+        echo "Game finished.\n";
+        echo "Starting new Game.\n";
+        $this->ttt->setCurrentState( $this->ttt->getSplash() );
+    }
 }

@@ -13,7 +13,7 @@ use Tobias\TicTacToe\TTT;
 
 interface TTTInterface {
 
-	public function __construct(TTT $TTT);
+	public function __construct(TTT &$TTT);
 
 	function numEntered( int $number ): void;
 

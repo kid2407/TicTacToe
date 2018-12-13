@@ -9,17 +9,31 @@
 namespace Tobias\TicTacToe\GameState;
 
 
+use Exception;
 use Tobias\TicTacToe\TTT;
 
 class Splash implements TTTInterface {
 
-	private $ttt;
+    private $ttt;
 
-	public function __construct( TTT $TTT ) {
-		$this->ttt = $TTT;
-	}
+    public function __construct( TTT &$TTT ) {
+        $this->ttt = $TTT;
+    }
 
-	function numEntered( int $number ): void {
-		// TODO: Implement numEntered() method.
-	}
+    function numEntered( int $number ): void {
+        $this->ttt->getWorld()->resetPlayground();
+        try {
+            $random = random_int( 1, 10 );
+            if ( $random % 2 == 0 ) {
+                $this->ttt->setCurrentState( $this->ttt->getXturn() );
+                echo "X begins to play\n";
+            } else {
+                $this->ttt->setCurrentState( $this->ttt->getOturn() );
+                echo "O begins to play\n";
+            }
+        } catch ( Exception $e ) {
+            echo $e->getMessage();
+            echo $e->getTraceAsString();
+        }
+    }
 }

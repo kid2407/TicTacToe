@@ -11,7 +11,7 @@ namespace Tobias\TicTacToe\GameState;
 
 use Tobias\TicTacToe\TTT;
 
-class OTurn implements TTTInterface {
+class XTurn implements TTTInterface {
 
     private $ttt;
 
@@ -24,12 +24,12 @@ class OTurn implements TTTInterface {
             $x     = floor( ( $number - 1 ) / 3 );
             $y     = ( $number - 1 ) % 3;
             $world = $this->ttt->getWorld();
-            if ( $world->setStone( $x, $y, 'O' ) ) {
-                $this->ttt->setCurrentState( $this->ttt->getXturn() );
-                echo "It is Xs turn\n";
+            if ( $world->setStone( $x, $y, 'X' ) ) {
+                $this->ttt->setCurrentState( $this->ttt->getOturn() );
+                echo "It is Os turn\n";
             } else {
                 echo "Invalid input, try again.\n";
-                echo "It is Os turn\n";
+                echo "It is Xs turn\n";
             }
         } else {
             echo "The number must be smaller than 10\n";
