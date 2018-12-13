@@ -1,0 +1,17 @@
+{
+  "name": "kid2407/tic-tac-toe",
+  "description": "A simple Tic-Tac-Toe game",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Tobias Franz",
+      "email": "cinex.mail@web.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Tobias\\TicTacToe\\": "src/"
+    }
+  },
+  "require": {}
+}
