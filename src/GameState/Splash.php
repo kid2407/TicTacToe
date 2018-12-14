@@ -6,6 +6,8 @@
  * Copyright 2018 Tobias Franz
  */
 
+declare(strict_types=1);
+
 namespace Tobias\TicTacToe\GameState;
 
 
@@ -16,15 +18,21 @@ class Splash implements TTTInterface {
 
     private $ttt;
 
-    public function __construct( TTT &$TTT ) {
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct( TTT $TTT ) {
         $this->ttt = $TTT;
     }
 
-    function numEntered( int $number ): void {
+    /**
+     * {@inheritdoc}
+     */
+    public function numEntered( int $number ): void {
         $this->ttt->getWorld()->resetPlayground();
         try {
             $random = random_int( 1, 10 );
-            if ( $random % 2 == 0 ) {
+            if ( $random % 2 === 0 ) {
                 $this->ttt->setCurrentState( $this->ttt->getXturn() );
                 echo "X begins to play\n";
             } else {

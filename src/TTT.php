@@ -6,6 +6,8 @@
  * Copyright 2018 Tobias Franz
  */
 
+declare(strict_types=1);
+
 namespace Tobias\TicTacToe;
 
 use Tobias\TicTacToe\GameState\End;
