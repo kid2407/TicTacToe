@@ -55,26 +55,26 @@ class World {
 
         // horizontal
         for ( $x = 0; $x < 2; $x ++ ) {
-            if ( !\in_array(' ', $playground[$x], true) && \count(array_unique($playground[$x ] ) ) === 1 ) {
+            if ( !in_array(' ', $playground[$x], true) && count(array_unique($playground[$x ] ) ) === 1 ) {
                 return true;
             }
         }
 
         // vertical
         foreach ( $playground as $key => $row ) {
-            if ( !\in_array(' ', [$playground[0][$key], $playground[1][$key], $playground[2][$key]], true) && \count(array_unique([$playground[0][$key ], $playground[1][$key ], $playground[2][$key ] ] ) ) === 1 ) {
+            if ( !in_array(' ', [$playground[0][$key], $playground[1][$key], $playground[2][$key]], true) && count(array_unique([$playground[0][$key ], $playground[1][$key ], $playground[2][$key ] ] ) ) === 1 ) {
                 return true;
             }
         }
 
         // diagonals
-        return !\in_array(
+        return !in_array(
                 ' ',
                 [$playground[0][0], $playground[0][2], $playground[1][1], $playground[2][0], $playground[2][2]],
                 true
             ) &&
-            (\count(array_unique([$playground[0][0], $playground[1][1], $playground[2][2]])) === 1 ||
-                \count(array_unique([$playground[2][0], $playground[1][1], $playground[0][2]])) === 1);
+            (count(array_unique([$playground[0][0], $playground[1][1], $playground[2][2]])) === 1 ||
+                count(array_unique([$playground[2][0], $playground[1][1], $playground[0][2]])) === 1);
     }
 
     /**
@@ -124,7 +124,7 @@ class World {
     private function hasNotMoreThanOnePlayerInArray( array $values ): bool
     {
         $uniqueValues      = array_unique( $values );
-        $countUniqueValues = \count($uniqueValues );
+        $countUniqueValues = count($uniqueValues );
 
         return $countUniqueValues === 1 || ( $countUniqueValues === 2 && \in_array(' ', $uniqueValues, true));
     }
