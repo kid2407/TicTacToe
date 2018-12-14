@@ -6,6 +6,8 @@
  * Copyright 2018 Tobias Franz
  */
 
+declare(strict_types=1);
+
 namespace Tobias\TicTacToe\GameState;
 
 
@@ -15,11 +17,17 @@ class End implements TTTInterface {
 
     private $ttt;
 
-    public function __construct( TTT &$TTT ) {
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct( TTT $TTT ) {
         $this->ttt = $TTT;
     }
 
-    function numEntered( int $number ): void {
+    /**
+     * {@inheritdoc}
+     */
+    public function numEntered( int $number ): void {
         echo "Game finished.\n";
         echo "Starting new Game.\n";
         $this->ttt->setCurrentState( $this->ttt->getSplash() );

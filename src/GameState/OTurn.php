@@ -6,6 +6,8 @@
  * Copyright 2018 Tobias Franz
  */
 
+declare(strict_types=1);
+
 namespace Tobias\TicTacToe\GameState;
 
 
@@ -15,13 +17,19 @@ class OTurn implements TTTInterface {
 
     private $ttt;
 
-    public function __construct( TTT &$TTT ) {
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct( TTT $TTT ) {
         $this->ttt = $TTT;
     }
 
-    function numEntered( int $number ): void {
+    /**
+     * {@inheritdoc}
+     */
+    public function numEntered( int $number ): void {
         if ( $number <= 9 ) {
-            $x     = floor( ( $number - 1 ) / 3 );
+            $x     = (int)floor( ( $number - 1 ) / 3 );
             $y     = ( $number - 1 ) % 3;
             $world = $this->ttt->getWorld();
             if ( $world->setStone( $x, $y, 'O' ) ) {
